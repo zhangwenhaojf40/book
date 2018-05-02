@@ -1,8 +1,8 @@
 package com.book.zhang.base.app;
 
+import com.book.zhang.base.base.IView;
 import com.book.zhang.base.http.ApiServices;
 import com.book.zhang.base.http.BaseObsever;
-
 import com.book.zhang.base.http.RetrofitManager;
 import com.book.zhang.base.module.ResultBean;
 import com.book.zhang.base.util.ToastUtils;
@@ -16,10 +16,10 @@ import io.reactivex.schedulers.Schedulers;
  * on 2018/4/27 0027.
  */
 
-public abstract class BasePresent<T> {
+public abstract class BasePresent<T,I extends IView> {
 
     public  ApiServices apiServices;
-
+    public I mView;
     public void init() {
         apiServices = RetrofitManager.newInstans().initRetrofit()
                 .create(ApiServices.class);
@@ -34,7 +34,7 @@ public abstract class BasePresent<T> {
 
                             paseJson(body.data);
                         } else {
-                            ToastUtils.showToast("请求异常");
+                            ToastUtils.showToast(body.msg);
                         }
 
                     }
@@ -51,7 +51,16 @@ public abstract class BasePresent<T> {
 
     protected abstract Observable<ResultBean<T>> getMethod();
 
+    public void attachView(I mView) {
+        this.mView = mView;
 
+    }
+
+    public void detachView() {
+        if (mView != null) {
+            mView = null;
+        }
+    }
 
 
 

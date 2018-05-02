@@ -7,4 +7,5 @@ package com.book.zhang.base.http;
 
 public class NetUrl {
     public static final String BASEURL = "http://120.55.57.236";
+    public static final String IMAGE_URL = "http://statics.zhuishushenqi.com";
 }

@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--条目详情-->
+        <activity android:name=".view.activity.ItemDetailActivity" />
+        <activity android:name=".view.activity.BookDetailActivity" />
+        <activity android:name=".view.activity.ReadActivity" />
+
     </application>
 
 </manifest>

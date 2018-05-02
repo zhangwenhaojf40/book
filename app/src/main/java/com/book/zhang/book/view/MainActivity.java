@@ -22,6 +22,12 @@ public class MainActivity extends BaseActivity {
     FrameLayout flContent;
     private FragmentManager fm;
 
+
+    @Override
+    protected void inJect() {
+
+    }
+
     @Override
     protected int getLayoutRes() {
         return R.layout.activity_main;

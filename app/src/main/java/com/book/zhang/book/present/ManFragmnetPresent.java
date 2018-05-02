@@ -17,12 +17,8 @@ import io.reactivex.schedulers.Schedulers;
  * on 2018/4/27 0027.
  */
 
-public class ManFragmnetPresent extends BasePresent<ManFragmentBean> {
-    IManFragment mView;
-    public ManFragmnetPresent(IManFragment mView) {
-        this.mView = mView;
+public class ManFragmnetPresent extends BasePresent<ManFragmentBean,IManFragment> {
 
-    }
     @Override
     protected void paseJson(ManFragmentBean body) {
         mView.getData(body);

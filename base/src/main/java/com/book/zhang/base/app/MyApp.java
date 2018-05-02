@@ -1,8 +1,7 @@
 package com.book.zhang.base.app;
 
 import android.app.Application;
-
-
+import android.content.res.Resources;
 
 
 /**
@@ -17,6 +16,9 @@ public class MyApp extends Application {
         super.onCreate();
         instans = this;
 
+    }
+    public static Resources getAppResources() {
+        return instans.getResources();
     }
     public static MyApp getApp() {
         return instans;

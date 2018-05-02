@@ -75,10 +75,11 @@ final class MyResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 
     @Override public T convert(ResponseBody value) throws IOException {
         JsonReader jsonReader = gson.newJsonReader(value.charStream());
-//        Log.e("bean", value.string());
+//        System.out.println(value.string());
         try {
             return adapter.read(jsonReader);
         } finally {
+
             value.close();
         }
     }

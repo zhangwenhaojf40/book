@@ -23,6 +23,7 @@ public  class AddParamInterceptor implements Interceptor {
 
         Request build = chain.request().newBuilder()
                 .addHeader("app-type", "Android")
+                .addHeader("access-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiMTIzIiwiaWF0IjoxNTI0NjQzOTg0LCJleHAiOjE1MjcyMzU5ODR9.qpLnAp4-rqc94fBxTH0up4zM4xxLNj-6qjd9rIvG9NE")
                 .build();
 
         return chain.proceed(build);
