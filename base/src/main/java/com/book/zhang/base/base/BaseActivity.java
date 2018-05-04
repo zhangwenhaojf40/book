@@ -13,14 +13,16 @@ import android.widget.TextView;
 
 import com.book.zhang.base.R;
 import com.book.zhang.base.app.BasePresent;
+import com.book.zhang.base.util.LoadingHelper;
 import com.gyf.barlibrary.ImmersionBar;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 /**
  * Created by ZhangWenHao
  * on 2018/4/27 0027.
  */
 
-public abstract class BaseActivity<P extends BasePresent> extends AppCompatActivity implements IView {
+public abstract class BaseActivity<P extends BasePresent> extends RxAppCompatActivity implements IView {
     public P mPresenter;
     public  Toolbar toolbar;
 
@@ -31,16 +33,17 @@ public abstract class BaseActivity<P extends BasePresent> extends AppCompatActiv
         setContentView(getLayoutRes());
         setToolBar();
         inJect();
-
+        attachView();
         ImmersionBar
                 .with(this)
                 .statusBarColor(R.color.toolBar)
+                .statusBarAlpha(0.3f)  //状态栏透明度，不写默认0.0f
                 .fitsSystemWindows(true)
                 .init();
         initView();
         initListent();
         initData();
-        attachView();
+
 
     }
 
@@ -95,4 +98,6 @@ public abstract class BaseActivity<P extends BasePresent> extends AppCompatActiv
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

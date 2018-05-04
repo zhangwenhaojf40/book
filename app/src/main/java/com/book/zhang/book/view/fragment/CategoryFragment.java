@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.book.zhang.base.app.BaseFragment;
+import com.book.zhang.base.util.LoadingHelper;
 import com.book.zhang.book.R;
 
 import java.util.ArrayList;
@@ -37,6 +38,12 @@ public class CategoryFragment extends BaseFragment {
         }
 
     }
+
+    @Override
+    protected void inJect() {
+
+    }
+
     @Override
     protected int getLayoutRes() {
         return R.layout.fragment_category;
@@ -62,7 +69,18 @@ public class CategoryFragment extends BaseFragment {
         tabs.setTabsFromPagerAdapter(adapter);//给Tabs设置适配器
     }
 
-  class CategoryPageAdapter extends FragmentStatePagerAdapter{
+    @Override
+    public void startLoad() {
+
+    }
+
+    @Override
+    public void stopLoad() {
+
+
+    }
+
+    class CategoryPageAdapter extends FragmentStatePagerAdapter{
 
       @Nullable
       @Override

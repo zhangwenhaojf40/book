@@ -1,5 +1,7 @@
 package com.book.zhang.book.present;
 
+import android.app.Activity;
+
 import com.book.zhang.base.app.BasePresent;
 import com.book.zhang.base.module.ReadBean;
 import com.book.zhang.base.module.ResultBean;
@@ -14,9 +16,11 @@ import io.reactivex.Observable;
 
 public class ReadActivityPresent extends BasePresent<ReadBean,IReadActivity> {
    public  String bookId;
+
+
     @Override
     protected void paseJson(ReadBean body) {
-
+        System.out.println(body);
     }
 
     @Override

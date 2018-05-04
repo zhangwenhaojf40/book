@@ -1,4 +1,4 @@
-package com.book.zhang.book.view;
+package com.book.zhang.book.view.activity;
 
 
 import android.support.v4.app.Fragment;
@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.widget.FrameLayout;
 
 import com.book.zhang.base.base.BaseActivity;
+import com.book.zhang.base.util.LoadingHelper;
 import com.book.zhang.book.R;
 import com.book.zhang.book.view.fragment.CategoryFragment;
 
@@ -49,5 +50,14 @@ public class MainActivity extends BaseActivity {
         fm.beginTransaction().add(R.id.fl_content, new CategoryFragment()).commit();
     }
 
+    @Override
+    public void startLoad() {
 
+    }
+
+    @Override
+    public void stopLoad() {
+
+
+    }
 }

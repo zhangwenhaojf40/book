@@ -6,4 +6,7 @@ package com.book.zhang.base.base;
  */
 
 public interface IView {
+    void startLoad();
+
+    void stopLoad();
 }

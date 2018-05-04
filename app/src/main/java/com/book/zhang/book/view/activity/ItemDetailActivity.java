@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.book.zhang.base.base.BaseActivity;
+import com.book.zhang.base.util.LoadingHelper;
 import com.book.zhang.base.util.MyResource;
 import com.book.zhang.book.R;
 import com.book.zhang.book.view.fragment.NewFragment;
@@ -86,7 +87,8 @@ public class ItemDetailActivity extends BaseActivity {
 
     }
 
-     class ItemAdapeter extends FragmentPagerAdapter {
+
+    class ItemAdapeter extends FragmentPagerAdapter {
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
@@ -107,5 +109,14 @@ public class ItemDetailActivity extends BaseActivity {
         public int getCount() {
             return titls.size();
         }
+    }
+    @Override
+    public void startLoad() {
+    }
+
+    @Override
+    public void stopLoad() {
+
+
     }
 }

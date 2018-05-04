@@ -12,6 +12,7 @@ import com.book.zhang.base.app.MyApp;
 import com.book.zhang.base.http.NetUrl;
 import com.book.zhang.base.module.ManFragmentBean;
 import com.book.zhang.base.util.GlideUtils;
+import com.book.zhang.base.util.LoadingHelper;
 import com.book.zhang.base.util.MyResource;
 import com.book.zhang.book.R;
 import com.book.zhang.book.iview.IManFragment;
@@ -22,6 +23,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by ZhangWenHao
@@ -40,6 +42,11 @@ public class ManFragment extends BaseFragment<ManFragmnetPresent> implements IMa
     * 类型
     * */
     private String type="male";
+
+    @Override
+    protected void inJect() {
+        mPresenter = new ManFragmnetPresent();
+    }
 
     @Override
     protected int getLayoutRes() {
@@ -73,7 +80,7 @@ public class ManFragment extends BaseFragment<ManFragmnetPresent> implements IMa
 
     @Override
     protected void initData() {
-        mPresenter = new ManFragmnetPresent();
+
         mPresenter.init();
     }
 
@@ -132,4 +139,15 @@ public class ManFragment extends BaseFragment<ManFragmnetPresent> implements IMa
         return manFragment;
 
     }
+    @Override
+    public void startLoad() {
+        LoadingHelper.getInstance().showLoading(context);
+    }
+
+    @Override
+    public void stopLoad() {
+
+        LoadingHelper.getInstance().hideLoading();
+    }
+
 }

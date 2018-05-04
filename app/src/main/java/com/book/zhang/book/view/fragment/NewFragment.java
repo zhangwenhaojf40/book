@@ -17,6 +17,7 @@ import com.book.zhang.base.http.NetUrl;
 import com.book.zhang.base.module.BookBean;
 import com.book.zhang.base.util.BaseUtils;
 import com.book.zhang.base.util.GlideUtils;
+import com.book.zhang.base.util.LoadingHelper;
 import com.book.zhang.base.util.MyResource;
 import com.book.zhang.book.R;
 import com.book.zhang.book.iview.INewFragment;
@@ -41,6 +42,11 @@ public class NewFragment extends BaseFragment<NewFragmentPresent> implements INe
     private RecyclerView mRecycleView;
     List<BookBean> datas = new ArrayList<>();
     private ItemAdapeter adapeter;
+
+    @Override
+    protected void inJect() {
+        mPresenter = new NewFragmentPresent( this);
+    }
 
     @Override
     protected int getLayoutRes() {
@@ -84,13 +90,23 @@ public class NewFragment extends BaseFragment<NewFragmentPresent> implements INe
 
     @Override
     protected void initData() {
-         mPresenter = new NewFragmentPresent( this);
+
          mPresenter.init();
     }
 
     @Override
     public void empty() {
         adapeter.setEmptyView(R.layout.layout_empty);
+    }
+
+    @Override
+    public void startLoad() {
+        LoadingHelper.getInstance().showLoading(context);
+    }
+
+    @Override
+    public void stopLoad() {
+        LoadingHelper.getInstance().hideLoading();
     }
 
     class ItemAdapeter extends BaseQuickAdapter<BookBean,BaseViewHolder> {

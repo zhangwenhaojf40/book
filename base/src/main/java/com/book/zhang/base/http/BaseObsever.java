@@ -1,6 +1,7 @@
 package com.book.zhang.base.http;
 
 import com.book.zhang.base.app.MyApp;
+import com.book.zhang.base.util.LoadingHelper;
 
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
@@ -24,6 +25,7 @@ public abstract class BaseObsever<T> implements Observer<T> {
     @Override
     public void onError(Throwable e) {
         onError();
+
         ApiErrorHelper.handleCommonError(MyApp.getApp(), e);
         e.printStackTrace();
     }

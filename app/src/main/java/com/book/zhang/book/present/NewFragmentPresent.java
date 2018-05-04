@@ -1,6 +1,9 @@
 package com.book.zhang.book.present;
 
+import android.app.Activity;
+
 import com.book.zhang.base.app.BasePresent;
+import com.book.zhang.base.base.BaseActivity;
 import com.book.zhang.base.module.BookBean;
 import com.book.zhang.base.module.ResultBean;
 import com.book.zhang.base.util.LogUtils;
@@ -21,6 +24,7 @@ public class NewFragmentPresent extends BasePresent<List<BookBean>,INewFragment>
 
 
     public NewFragmentPresent(NewFragment fragment) {
+
 
         this.fragment = fragment;
     }

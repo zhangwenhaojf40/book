@@ -1,19 +1,17 @@
 package com.book.zhang.book.view.activity;
 
 import android.content.Intent;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.book.zhang.base.base.BaseActivity;
-import com.book.zhang.base.base.IBaseView;
 import com.book.zhang.base.http.NetUrl;
 import com.book.zhang.base.module.BookDetailBean;
 import com.book.zhang.base.util.GlideUtils;
+import com.book.zhang.base.util.LoadingHelper;
 import com.book.zhang.base.util.MyResource;
 import com.book.zhang.book.R;
 import com.book.zhang.book.iview.IBookDetailActivity;
 import com.book.zhang.book.present.BookDetailActivityPresent;
-import com.bumptech.glide.Glide;
 
 /**
  * Created by ZhangWenHao
@@ -50,7 +48,7 @@ public class BookDetailActivity extends BaseActivity<BookDetailActivityPresent> 
 
     private void findId() {
         tvName =  findViewById(R.id.tv_book_name);
-        tvAuthor =  findViewById(R.id.tv_book_name);
+        tvAuthor =  findViewById(R.id.ctv_book_author);
         tvType =  findViewById(R.id.tv_book_classify);
         tvCount =  findViewById(R.id.tv_word_count);
         tvFow =  findViewById(R.id.tv_fow_num);
@@ -91,6 +89,17 @@ public class BookDetailActivity extends BaseActivity<BookDetailActivityPresent> 
         tvFow.setText(data.latelyFollower+ "");
         //好评率
         tvGood.setText(data.retentionRatio + "%");
+
+    }
+
+    @Override
+    public void startLoad() {
+        LoadingHelper.getInstance().showLoading(this);
+    }
+
+    @Override
+    public void stopLoad() {
+        LoadingHelper.getInstance().hideLoading();
 
     }
 }
